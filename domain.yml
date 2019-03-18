@@ -1,0 +1,78 @@
+intents:
+- greet
+- goodbye
+- thanks
+- joke
+- inform_username
+- affirm
+- deny
+- request_restaurant
+- inform_restaurant
+- request_location
+- request_phone
+- request_recommendation
+
+entities:
+- username
+- food
+- price
+- restaurant
+- area
+
+slots:
+    username:
+        type: text
+    food:
+        type: unfeaturized
+        auto_fill: false
+    price:
+        type: unfeaturized
+        auto_fill: false
+    area:
+        type: unfeaturized
+        auto_fill: false
+    restaurant:
+        type: text
+
+templates:
+    utter_default:
+        - text: "很抱歉，我没明白您的意思，请重新输入。"
+    utter_ask_username:
+        - text: "你好，告诉我你的名字？"
+    utter_greet:
+        - text: "很高兴见到你，{username}。我能为你做什么？"
+    utter_ask_food:
+        - text: "你想吃什么类型的食物？"
+    utter_ask_price:
+        - text: "你想要什么价格范围的？"
+    utter_ask_area:
+        - text: "餐厅的位置大概在哪里可以接受？"
+    utter_slots_values:
+        - text: "我即将给你查找符合如下条件的餐厅：\n
+            - 食物: {food}\n
+            - 价格: {price}\n
+            - 地区: {area}"
+    utter_submit:
+        - text: "好的，都安排上了。"
+    utter_goodbye:
+        - text: "拜拜。"
+    utter_noworries:
+        - text: "很荣幸为你工作。"
+        - text: "别客气。"
+
+actions:
+    - utter_default
+    - utter_ask_username
+    - utter_greet
+    - utter_goodbye
+    - utter_noworries
+    - utter_ask_food
+    - utter_ask_price
+    - utter_ask_area
+    - utter_slots_values
+    - utter_submit
+    - action_joke
+    - action_restaurant
+
+forms:
+    - restaurant_form
